@@ -9,10 +9,25 @@
     <Compile Include="ExecuteProcess.fs" />
     <Compile Include="RegularExpressions.fs" />
     <Compile Include="Clear-Branches.fs" />
+    <Content Include="..\PoshGitModule.dll-Help.xml">
+      <Link>PoshGitModule.dll-Help.xml</Link>
+    </Content>
+    <Content Include="..\PoshGitModule.psd1">
+      <Link>PoshGitModule.psd1</Link>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="PowerShellStandard.Library" Version="5.1.0" />
   </ItemGroup>
+
+  <Target Name="GetVersion" BeforeTargets="CoreCompile">
+    <Exec Command='pwsh -nol -noni -nop -c "&amp; { Import-LocalizedData -BindingVariable m -FileName $(MSBuildProjectName); (gv m -va).ModuleVersion }"'
+          ConsoleToMSBuild="true" 
+          IgnoreExitCode="true" 
+          IgnoreStandardErrorWarningFormat="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="Version" />
+    </Exec>
+  </Target>
 
 </Project>
