@@ -3,7 +3,7 @@ Learn to write powershell Modules in F#
 
 http://webcoder.info/fspsmodule.html
 
-## PowerShell CheatSheet
+## PowerShell 7 CheatSheet
 
 To view the Help topic for this cmdlet online:
 
