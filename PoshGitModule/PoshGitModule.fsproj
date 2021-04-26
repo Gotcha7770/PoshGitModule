@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
@@ -22,10 +22,7 @@
   </ItemGroup>
 
   <Target Name="GetVersion" BeforeTargets="CoreCompile">
-    <Exec Command='pwsh -nol -noni -nop -c "&amp; { Import-LocalizedData -BindingVariable m -FileName $(MSBuildProjectName); (gv m -va).ModuleVersion }"'
-          ConsoleToMSBuild="true" 
-          IgnoreExitCode="true" 
-          IgnoreStandardErrorWarningFormat="true">
+    <Exec Command="pwsh -nol -noni -nop -c &quot;&amp; { Import-LocalizedData -BindingVariable m -FileName $(MSBuildProjectName); (gv m -va).ModuleVersion }&quot;" ConsoleToMSBuild="true" IgnoreExitCode="true" IgnoreStandardErrorWarningFormat="true">
       <Output TaskParameter="ConsoleOutput" PropertyName="Version" />
     </Exec>
   </Target>
