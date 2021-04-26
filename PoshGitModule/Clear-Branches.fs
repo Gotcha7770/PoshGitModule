@@ -6,7 +6,7 @@ open RegularExpressions
 
 [<Cmdlet("Clear", "Branches")>]
 type ClearBranchesCommand() =
-    inherit PSCmdlet()
+    inherit Cmdlet()
 
     let executeGit args = executeProcess ("git", args)
     let expr = ": gone]" //branch is gone from origin marker
