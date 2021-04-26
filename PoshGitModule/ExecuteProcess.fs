@@ -25,7 +25,7 @@ let private executeFromInfo (procInfo: ProcessStartInfo) =
       stdout = output
       stderr = error }
 
-let executeProcess (name, args) =
+let executeProcess name args =
     let procInfo = ProcessStartInfo(name, args)
 
     procInfo.UseShellExecute <- false
