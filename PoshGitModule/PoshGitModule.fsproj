@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="ExecuteProcess.fs" />
     <Compile Include="RegularExpressions.fs" />
     <Compile Include="Clear-Branches.fs" />
     <Content Include="..\PoshGitModule.dll-Help.xml">
